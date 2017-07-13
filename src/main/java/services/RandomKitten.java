@@ -10,13 +10,18 @@ import java.util.Random;
  */
 public class RandomKitten {
 
+    private boolean alwaysFail = false;
+
     private RandomKitten() {
         // HAHA
         // TRY TO CREATE THIS LOL
     }
 
     public Emotion getRandomEmotion() {
-        return Emotion.values()[new Random().nextInt(Emotion.values().length)];
+        return alwaysFail ? Emotion.SAD : Emotion.values()[new Random().nextInt(Emotion.values().length)];
     }
 
+    public void setAlwaysFail(final boolean alwaysFail) {
+        this.alwaysFail = alwaysFail;
+    }
 }
